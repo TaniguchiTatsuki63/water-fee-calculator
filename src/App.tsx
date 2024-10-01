@@ -81,27 +81,40 @@ function App() {
     }
   };
   return (
-    <div className="App">
-      <h1>水道料金計算機</h1>
-      <label htmlFor="diameter">管径(mm):</label>
-      <select className='select' id="diameter" value={diameter} onChange={handleDiameterChange}>
-        <option value="" disabled>Select an option</option>
-        <option value="13">13mm</option>
-        <option value="20">20mm</option>
-        <option value="25">25mm</option>
-        <option value="40">40mm</option>
-        <option value="50">50mm</option>
-        <option value="70">70mm</option>
-        <option value="100">100mm</option>
-        <option value="150">150mm</option>
-        <option value="200">200mm</option>
-        <option value="kyoyo1">共用1</option>
-        <option value="kyoyo2">共用2</option>
-      </select>      <label htmlFor="useamount">使用量(m<sup>3</sup>):</label>
-      <input className='input' id="useamount" type="number" step="1" value={useamount} onChange={handleUseAmountChange} />
-      <button className='button' onClick={calcValues}>計算</button>
-      <div className='result'>Result: {result}円</div>
-    </div>
+    <>
+      <div className='App-header'>
+        <h1 className='h1'>水道料金計算機</h1>       
+      </div>
+      <div className="container">
+        <div className='input-container'>
+          <label className='label' htmlFor="diameter">管径(mm):</label>
+          <select className='input' id="diameter" value={diameter} onChange={handleDiameterChange}>
+            <option value="" disabled>Select</option>
+            <option value="13">13mm</option>
+            <option value="20">20mm</option>
+            <option value="25">25mm</option>
+            <option value="40">40mm</option>
+            <option value="50">50mm</option>
+            <option value="70">70mm</option>
+            <option value="100">100mm</option>
+            <option value="150">150mm</option>
+            <option value="200">200mm</option>
+            <option value="kyoyo1">共用1</option>
+            <option value="kyoyo2">共用2</option>
+          </select>
+        </div>
+        <div className='input-container'>    
+          <label className='label' htmlFor="useamount">使用量(m<sup>3</sup>):</label>
+          <input className='input' id="useamount" type="number" step="1" value={useamount} onChange={handleUseAmountChange} />
+        </div>
+      </div>
+      <div className='button-container'>
+        <button className='button' onClick={calcValues}>計算</button>
+      </div>
+      <div className='result'>
+        今月の水道料金: {result}円
+      </div>
+    </>
   );
 }
 
